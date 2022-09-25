@@ -7,11 +7,6 @@ import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 import pie from "../assets/images/pie-chart.png";
 import sig from "../assets/images/signature.jpeg";
 import "./styles.css";
-import { App } from './chart';
-
-
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
 
 
 import { useState, useEffect } from 'react';
