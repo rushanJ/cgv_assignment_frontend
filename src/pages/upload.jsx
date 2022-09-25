@@ -7,7 +7,6 @@ import * as rb from "react-bootstrap";
 import "./styles.css";
 
 const Upload = () => {
-  
   return (
     <div className="dashboard-content">
       <div className="dashbord-header-container">
@@ -24,13 +23,16 @@ const Upload = () => {
           <h2>Upload</h2>
         </div>
         <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Date</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Module Code</Form.Label>
             <Form.Control type="text" placeholder="" />
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Lecture</Form.Label>
+            <Form.Label>Module Name</Form.Label>
+            <Form.Control type="text" placeholder="" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Date</Form.Label>
             <Form.Control type="text" placeholder="" />
           </Form.Group>
 
@@ -38,7 +40,6 @@ const Upload = () => {
             <Form.Label>Image</Form.Label>
             <Form.Control type="file" name="file" />
           </Form.Group>
-          
 
           <Button variant="success" type="submit">
             Upload
