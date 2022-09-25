@@ -9,7 +9,7 @@ import Lectures from './pages/lectures';
 import CheckOrder from './pages/check-order';
 import DispatchOrders from './pages/dispatch-orders';
 import ReceiveConfirmation from './pages/receive-confirmation';
-import AllOrders from './pages/all-orders';
+import Dates from './pages/dates';
 
 function App () {
   return(
@@ -24,7 +24,7 @@ function App () {
                   <Route exact path="/check-order" element={<CheckOrder/>} />
                   <Route exact path="/dispatch-orders" element={< DispatchOrders/>} />
                   <Route exact path="/receive-confirmation" element={<ReceiveConfirmation/>} />
-                  <Route exact path="/all-orders" element={<AllOrders/>} />
+                  <Route exact path="/dates" element={<Dates/>} />
 
               </Routes>
           </div>

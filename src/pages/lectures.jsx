@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 const Lectures = () => {
@@ -9,7 +10,7 @@ const Lectures = () => {
       {/* <DashboardHeader btnText="New Order" /> */}
 
       <div className="dashbord-header-container">
-        <Button variant="secondary" size="md">
+        <Button variant="primary" size="md">
           Upload File
         </Button>
         <div className="dashbord-header-right"></div>
@@ -19,12 +20,16 @@ const Lectures = () => {
           <h2>Lectures</h2>
         </div>
         <div className="d-grid gap-3">
-          <Button variant="secondary" size="lg">
-            CGV
-          </Button>
-          <Button variant="secondary" size="lg">
-            ABS
-          </Button>
+          <Link className="nav-link" to="/dates">
+            <Button variant="secondary" size="lg" className="w-100">
+              CGV
+            </Button>
+          </Link>
+          <Link className="nav-link" to="/dates">
+            <Button variant="secondary" size="lg" className="w-100">
+              ABS
+            </Button>
+          </Link>
         </div>
 
         {/* <Form>
