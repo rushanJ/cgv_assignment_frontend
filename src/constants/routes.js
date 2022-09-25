@@ -7,30 +7,7 @@ const sidebar_menu = [
         path: '/',
         title: 'Dashboard',
     },
-    // {
-    //     id: 2,
-    //     icon: ShippingIcon,
-    //     path: '/check-order',
-    //     title: 'Check Order',
-    // },
-    // {
-    //     id: 3,
-    //     icon: ShippingIcon, 
-    //     path: '/dispatch-orders',
-    //     title: 'Dispatch Orders',
-    // },
-    // {
-    //     id: 4,
-    //     icon: ShippingIcon,
-    //     path: '/receive-confirmation',
-    //     title: 'Receive Confirmation',
-    // },
-    // {
-    //     id: 5,
-    //     icon: ShippingIcon,
-    //     path: '/all-orders',
-    //     title: 'All Orders',
-    // }
+    
 ]
 
 export default sidebar_menu;

@@ -66,7 +66,7 @@ handleDateChange(event) {
                     <div className="col-md-6 offset-md-3">
                         <br /><br />
  
-                            <h3 className="text-white">React File Upload Example - Tutsmake.com</h3>
+                            <h3 className="text-white">React File Upload</h3>
                             <br />
                             <div className="form-row">
                                 <div className="form-group col-md
