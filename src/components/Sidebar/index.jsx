@@ -30,6 +30,7 @@ function SideBar ({ menu }) {
                     <img
                         src={logo}
                         alt="logo"
+                        
                          />
                 </div>
 

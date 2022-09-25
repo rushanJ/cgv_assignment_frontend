@@ -1,7 +1,6 @@
-import DashboardHeader from "../components/DashboardHeader";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-
+import DashboardHeader from "../components/DashboardHeader";
 import * as rb from "react-bootstrap";
 
 import "./styles.css";
@@ -26,7 +25,7 @@ const Dates = () => {
         <div>
           <div>
             {data.map(function (d, idx) {
-              return <li key={idx}>{d.name}</li>;
+              return <li key={idx}><Link to="/attendance">{d.name}</Link></li>;
             })}
           </div>
         </div>
