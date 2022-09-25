@@ -1,18 +1,31 @@
+import { useState, useEffect } from 'react';
 import Button from "react-bootstrap/Button";
-import DashboardHeader from "../components/DashboardHeader";
-import Form from "react-bootstrap/Form";
-import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
-import "./styles.css";
 
-const Lectures = () => {
-  return (
-    <div className="dashboard-content">
+const App = () => {
+   const [posts, setPosts] = useState([]);
+
+   useEffect(() => {
+      fetch('http://localhost:8000/api/file/modules')
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+            setPosts(data);
+         })
+         .catch((err) => {
+            console.log(err.message);
+         });
+   }, []);
+
+   return (
+      <>
+        
+         <div className="dashboard-content">
       
       <div className="dashbord-header-container">
         <Link className="nav-link" to="/upload">
           <Button variant="primary" size="md">
-            Upload File
+            Upload File 
           </Button>
         </Link>
         <div className="dashbord-header-right"></div>
@@ -21,23 +34,24 @@ const Lectures = () => {
         <div className="dashboard-content-header">
           <h2>Lectures</h2>
         </div>
-        <div className="d-grid gap-3">
-          <Link className="nav-link" to="/dates">
-            <Button variant="secondary" size="lg" className="w-100">
-              CGV
-            </Button>
-          </Link>
-          <Link className="nav-link" to="/dates">
-            <Button variant="secondary" size="lg" className="w-100">
-              ABS
-            </Button>
-          </Link>
+        <div className="d-grid gap-3">.
+        {posts.map((module) => {
+               return (
+                <Link className="nav-link" to={"/dates?module="+module}>
+                  <Button variant="secondary" size="lg" className="w-100">
+                    {module}
+                  </Button>
+              </Link>
+               );
+            })}
+         
         </div>
 
         
       </div>
     </div>
-  );
+      </>
+   );
 };
 
-export default Lectures;
+export default App;
