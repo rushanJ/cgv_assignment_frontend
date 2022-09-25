@@ -7,8 +7,50 @@ import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 import pie from "../assets/images/pie-chart.png";
 import sig from "../assets/images/signature.jpeg";
 import "./styles.css";
+import { App } from './chart';
+
+
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
+
+
+import { useState, useEffect } from 'react';
+
 
 const Attendance = () => {
+
+  const data = [{ name: "Date 1" }, { name: "Date 2" }];
+  const queryString = window.location.search;
+  const parameters = new URLSearchParams(queryString);
+  const module = parameters.get('module');
+  const date = parameters.get('date');
+  console.log(module);
+  const [posts, setPosts] = useState([]);
+  const [attendence, setAttendence] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:8000/api/file/dates')
+       .then((res) => res.json())
+       .then((data) => {
+          console.log(data);
+          setPosts(data);
+       })
+       .catch((err) => {
+          console.log(err.message);
+       });
+ }, []);
+
+ useEffect(() => {
+  fetch('http://localhost:8000/api/attendence/?moduleName='+module+'&date='+date)
+     .then((res) => res.json())
+     .then((data) => {
+        console.log(data);
+        setAttendence(data);
+     })
+     .catch((err) => {
+        console.log(err.message);
+     });
+}, []);
+
   return (
     <div className="dashboard-content">
       {/* <DashboardHeader btnText="New Order" /> */}
@@ -38,47 +80,37 @@ const Attendance = () => {
               </thead>
 
               <tbody>
-                <tr>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                  <td>
-                    <span>test</span>
-                  </td>
-                </tr>
-              </tbody>
+          {attendence.map((data) => {
+
+               return (
+                
+                  <tr className="post-card" key={data.id}>
+                    <>
+                      <td>
+                        <span>{data.userId}</span>
+                      </td>
+                      <td>
+                        <span>{data.name}</span>
+                      </td>
+                      <td>
+                        <span>{data.moduleCode}</span>
+                      </td>
+                      <td>
+                        <span>{data.moduleName}</span>
+                      </td>
+                      <td>
+                        <span>{data.date}</span>
+                      </td>
+                      <td>
+                        <span>{((data.attendence) ? 'Present' : 'Absent')}</span>
+                      </td>
+                    </>
+                     
+                  </tr>
+               );
+            })}
+            
+          </tbody>
             </rb.Table>
 
             {/* <Form>
